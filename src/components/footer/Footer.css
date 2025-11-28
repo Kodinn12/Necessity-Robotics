@@ -1,0 +1,149 @@
+/* src/components/Footer/Footer.css */
+.footer {
+    background: #0f0c29;
+    color: #e0e0e0;
+    padding: 0;
+    font-size: 1rem;
+  }
+  
+  .footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .footer-top {
+    padding: 4rem 0;
+  }
+  
+  .footer-brand {
+    margin-bottom: 2rem;
+  }
+  
+  .footer .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .footer .logo-icon {
+    margin-right: 0.5rem;
+    color: #4a90e2;
+    font-size: 1.8rem;
+  }
+  
+  .footer-text {
+    color: #a0a0a0;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-links a {
+    color: #a0a0a0;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #4a90e2;
+  }
+  
+  .footer-links,
+  .footer-contact {
+    margin: 2rem 0;
+  }
+  
+  .footer-title {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+  }
+  
+  .footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: #4a90e2;
+  }
+  
+  .footer-links ul,
+  .footer-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li,
+  .footer-contact li {
+    margin-bottom: 0.8rem;
+  }
+  
+  .footer-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #4a90e2;
+  }
+  
+  .footer-contact li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a0a0a0;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0;
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-top .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  
+    .footer-brand {
+      margin-bottom: 0;
+    }
+  
+    .footer-links,
+    .footer-contact {
+      margin: 0;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .footer {
+      text-align: center;
+    }
+  
+    .footer-title::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .social-links {
+      justify-content: center;
+    }
+  }

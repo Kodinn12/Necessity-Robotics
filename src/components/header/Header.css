@@ -1,0 +1,140 @@
+/* src/components/Header/Header.css */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .logo-image {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .nav-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #4a90e2;
+  }
+  
+  .cta-button {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background: #357abd;
+    transform: translateY(-2px);
+  }
+  
+  .menu-toggle {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 70px;
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - 70px);
+      background: #0f0c29;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 2rem;
+      transition: 0.3s;
+    }
+  
+    .nav-links.active {
+      left: 0;
+    }
+  
+    .nav-link {
+      padding: 1rem 0;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .cta-button {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  }
+
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      #e0e0e0 0%,
+      #f5f5f5 20%,
+      #e0e0e0 40%,
+      #c0c0c0 60%,
+      #e0e0e0 80%,
+      #f5f5f5 100%
+    );
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
