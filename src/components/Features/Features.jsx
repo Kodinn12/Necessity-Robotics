@@ -1,5 +1,6 @@
 // src/components/Features/Features.jsx
 import React from 'react';
+import YouTube from 'react-youtube';
 import { FaRobot, FaHeadset, FaCogs } from 'react-icons/fa';
 import './Features.css';
 
@@ -9,46 +10,39 @@ const Features = () => {
       title: "Stereo Vision Callibration",
       icon: <FaRobot className="feature-icon" />,
       description: "Callibration of diy Stereo Vision Camera",
-      ytLink: "https://youtube/ywyFoPa10wM?si=2ka8ZAlED2AuHGhb"
+      ytLink: "https://youtube/wCXGuflIr-4"
     },
     {
       title: "Depth Mapping",
       icon: <FaHeadset className="feature-icon" />,
       description: "Advanced depth perception for accurate mapping",
-      ytLink: "https://youtube/cgecZxkIC50?si=XYZfnnKUeKFNkBkD"
+      ytLink: "https://youtube/1G43fMI7J0U"
     },
     {
       title: "Point clouds mapping ",
       icon: <FaCogs className="feature-icon" />,
       description: "Precise movement and path planning",
-      ytLink: "https://youtube/0udeioey7uY?si=r6pUXvzhuyhJsz_r"
+      ytLink: "https://youtube/9ZfODqTzjmY"
     }
   ];
 
-  // Convert different YouTube URL formats to an embeddable URL
-  const getEmbedUrl = (url) => {
+  const getVideoId = (url) => {
     if (!url) return '';
     try {
       const u = new URL(url);
-      // Handle youtu.be/<id>
       if (u.hostname.includes('youtu.be')) {
-        const id = u.pathname.slice(1);
-        return `https://www.youtube-nocookie.com/embed/${id}`;
+        return u.pathname.slice(1);
       }
-      // Handle youtube.com/watch?v=<id> and other variants
       if (u.hostname.includes('youtube.com')) {
         const id = u.searchParams.get('v');
-        if (id) return `https://www.youtube-nocookie.com/embed/${id}`;
-        // Fallback: if already /embed/<id>
-        if (u.pathname.startsWith('/embed/')) return url;
+        if (id) return id;
+        if (u.pathname.startsWith('/embed/')) return u.pathname.split('/').pop();
       }
-      // As a last resort, try to match a 11-char video id pattern
-      const m = url.match(/[\/?=]([A-Za-z0-9_-]{11})(?:[&#?]|$)/);
-      if (m && m[1]) return `https://www.youtube-nocookie.com/embed/${m[1]}`;
     } catch (_) {
-      // ignore parse errors and fall through
+      /* noop */
     }
-    return url;
+    const m = (url || '').match(/[\/?=]([A-Za-z0-9_-]{11})(?:[&#?]|$)/);
+    return m && m[1] ? m[1] : '';
   };
 
   return (
@@ -60,7 +54,6 @@ const Features = () => {
           <p className="description">
             Experience cutting-edge robotics solutions that transform industries and improve lives.
           </p>
-          
           <div className="features-grid">
             {works.map((work, index) => (
               <div key={index} className="feature-card">
@@ -72,15 +65,18 @@ const Features = () => {
                   <p>{work.description}</p>
                 </div>
                 <div className="video-wrapper">
-                  <iframe
-                    width="100%"
-                    height="200"
-                    src={getEmbedUrl(work.ytLink)}
-                    title={work.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                  <YouTube
+                    videoId={getVideoId(work.ytLink)}
+                    opts={{
+                      width: '100%',
+                      height: '200',
+                      playerVars: {
+                        rel: 0,
+                        modestbranding: 1,
+                      },
+                    }}
+                    iframeClassName="feature-video"
+                  />
                 </div>
               </div>
             ))}
