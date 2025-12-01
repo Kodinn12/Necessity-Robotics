@@ -16,6 +16,12 @@
     padding: 4rem 0;
   }
   
+  /* Grid wrapper for symmetric rows/columns */
+  .footer-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  
   .footer-brand {
     margin-bottom: 2rem;
   }
@@ -117,10 +123,8 @@
   }
   
   @media (min-width: 768px) {
-    .footer-top .container {
-      display: grid;
+    .footer-grid {
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
     }
   
     .footer-brand {

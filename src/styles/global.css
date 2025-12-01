@@ -1,4 +1,11 @@
 /* src/styles/global.css */
+/* Utility font class: Contrail One */
+.contrail-one-regular {
+  font-family: "Contrail One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
     --primary: #7c3aed;
     --primary-dark: #6d28d9;
@@ -7,6 +14,11 @@
     --light: #f9fafb;
     --gray: #6b7280;
     --danger: #ef4444;
+  }
+  
+  /* Apply site-wide font */
+  body, button, input, select, textarea {
+    font-family: "Contrail One", sans-serif;
   }
   
   * {
@@ -20,7 +32,7 @@
   }
   
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: "Contrail One", sans-serif;
     line-height: 1.6;
     color: var(--dark);
     background: var(--light);

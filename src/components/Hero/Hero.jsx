@@ -15,8 +15,8 @@ const Hero = () => {
           </Suspense>
         </div>
         <div className="hero-text">
-          <h1>Welcome to Necessity Robotics</h1>
-          <p>Innovating the future of automation and AI solutions</p>
+          <h1 className="contrail-one-regular">Welcome to Necessity Robotics</h1>
+          <p className="contrail-one-regular"> Developing trainable robotic platforms to asists humans in day life tasks. </p>
         </div>
       </div>
     </section>
