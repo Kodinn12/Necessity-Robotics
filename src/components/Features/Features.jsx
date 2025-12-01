@@ -33,18 +33,18 @@ const Features = () => {
       // Handle youtu.be/<id>
       if (u.hostname.includes('youtu.be')) {
         const id = u.pathname.slice(1);
-        return `https://www.youtube.com/embed/${id}`;
+        return `https://www.youtube-nocookie.com/embed/${id}`;
       }
       // Handle youtube.com/watch?v=<id> and other variants
       if (u.hostname.includes('youtube.com')) {
         const id = u.searchParams.get('v');
-        if (id) return `https://www.youtube.com/embed/${id}`;
+        if (id) return `https://www.youtube-nocookie.com/embed/${id}`;
         // Fallback: if already /embed/<id>
         if (u.pathname.startsWith('/embed/')) return url;
       }
       // As a last resort, try to match a 11-char video id pattern
       const m = url.match(/[\/?=]([A-Za-z0-9_-]{11})(?:[&#?]|$)/);
-      if (m && m[1]) return `https://www.youtube.com/embed/${m[1]}`;
+      if (m && m[1]) return `https://www.youtube-nocookie.com/embed/${m[1]}`;
     } catch (_) {
       // ignore parse errors and fall through
     }
