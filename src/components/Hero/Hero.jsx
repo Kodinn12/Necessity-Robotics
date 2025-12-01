@@ -16,7 +16,7 @@ const Hero = () => {
         </div>
         <div className="hero-text">
           <h1 className="contrail-one-regular">Welcome to Necessity Robotics</h1>
-          <p className="contrail-one-regular"> Developing trainable robotic platforms to asists humans in day life tasks. </p>
+          <p className="contrail-one-regular"> Developing trainable robotic platforms to assist humans in day life tasks. </p>
         </div>
       </div>
     </section>
