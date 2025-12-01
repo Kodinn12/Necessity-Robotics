@@ -1,6 +1,5 @@
 // src/components/Hero/Hero.jsx
 import React, { Suspense } from 'react';
-import FloatingRobot from '../FloatingRobot/FloatingRobot';
 import './Hero.css';
 
 // Lazy load the 3D component
@@ -16,7 +15,6 @@ const Hero = () => {
           </Suspense>
         </div>
         <div className="hero-text">
-          <FloatingRobot />
           <h1>Welcome to Necessity Robotics</h1>
           <p>Innovating the future of automation and AI solutions</p>
         </div>
